@@ -25,38 +25,70 @@ import os.path
 file = open("text_files/to_encode/sam_i_am")
 
 input_string = str(file.read())
-
-bytetjes = bytearray(input_string, 'utf-8')
-
+file.close()
 
 string_pointer = 0
-past_inputs = []
-string_to_check = ''
 
-
-def substitute_occurrence(occ_i, length):
-    return f"({occ_i},{length})"
-
-locations = {}
+input_had = ""
 output_string = ""
 
 while string_pointer < len(input_string):
-    current_val = input_string[string_pointer]
-    if (string_to_check+current_val) in ''.join(past_inputs):
-        string_to_check += current_val
-        occurrences = past_inputs.index(current_val)
+    if string_pointer == len(input_string) - 1:
+        output_string += input_string[string_pointer]
+        break
+    in_input = string_pointer + 1
+    looking_at = str(input_string[string_pointer])
+    while looking_at in input_had:
+        looking_at = input_string[string_pointer:in_input]
+        in_input += 1
+    looking_at = looking_at[:-1]
+    in_input -= 1
+    if in_input == string_pointer:
+        input_had += input_string[string_pointer]
+        output_string += input_string[string_pointer]
+        string_pointer += 1
+    elif in_input - string_pointer < 4:
+        input_had += looking_at
+        output_string += looking_at
+        string_pointer = in_input - 1
     else:
-        # Verander dit voor oprechte LZSS implementatie
-        if len(string_to_check) > 4:
-            print(past_inputs)
-            print(string_to_check)
-            occurrence_index = input_string.index(string_to_check)
-            output_string += substitute_occurrence(occurrence_index, len(string_to_check))
-        else:
-            output_string += string_to_check+current_val
-        string_to_check = ''
-    string_pointer += 1
-    past_inputs.append(current_val)
+        occurence_index = input_had.index(looking_at)
+        length = in_input - string_pointer - 1
+        output_string += f"({occurence_index},{length})"
+        input_had += looking_at
+        string_pointer = in_input - 1
+
+# bytetjes = bytearray(input_string, 'utf-8')
+#
+#
+# string_pointer = 0
+# past_inputs = []
+# string_to_check = ''
+#
+#
+# def substitute_occurrence(occ_i, length):
+#     return f"({occ_i},{length})"
+#
+# locations = {}
+# output_string = ""
+#
+# while string_pointer < len(input_string):
+#     current_val = input_string[string_pointer]
+#     if (string_to_check+current_val) in ''.join(past_inputs):
+#         string_to_check += current_val
+#         occurrences = past_inputs.index(current_val)
+#     else:
+#         # Verander dit voor oprechte LZSS implementatie
+#         if len(string_to_check) > 4:
+#             print(past_inputs)
+#             print(string_to_check)
+#             occurrence_index = input_string.index(string_to_check)
+#             output_string += substitute_occurrence(occurrence_index, len(string_to_check))
+#         else:
+#             output_string += string_to_check+current_val
+#         string_to_check = ''
+#     string_pointer += 1
+#     past_inputs.append(current_val)
 
 print(output_string)
 f = open("text_files/encoded/sam_i_am_encoded2", 'w')
