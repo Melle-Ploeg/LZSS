@@ -1,6 +1,6 @@
 import regex as re
 
-file = open("text_files/encoded/sam_i_am_encoded2")
+file = open("text_files/encoded/lyric_aroundtheworld_encoded")
 
 text = str(file.read())
 

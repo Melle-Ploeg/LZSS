@@ -22,7 +22,7 @@ import os.path
 # repeat
 
 # Read the file
-file = open("text_files/to_encode/sam_i_am")
+file = open("text_files/to_encode/lyric_aroundtheworld")
 
 input_string = str(file.read())
 file.close()
@@ -32,31 +32,36 @@ string_pointer = 0
 input_had = ""
 output_string = ""
 
+min_window = 4
+max_window = 32 # 32 is the max window size
+
 while string_pointer < len(input_string):
+    looked = False
     if string_pointer == len(input_string) - 1:
         output_string += input_string[string_pointer]
         break
-    in_input = string_pointer + 1
-    looking_at = str(input_string[string_pointer])
-    while looking_at in input_had:
-        looking_at = input_string[string_pointer:in_input]
-        in_input += 1
-    looking_at = looking_at[:-1]
-    in_input -= 1
-    if in_input == string_pointer:
-        input_had += input_string[string_pointer]
-        output_string += input_string[string_pointer]
-        string_pointer += 1
-    elif in_input - string_pointer < 4:
-        input_had += looking_at
-        output_string += looking_at
-        string_pointer = in_input - 1
+    in_input = string_pointer + min_window
+    if in_input < len(input_string):
+        looking_at = str(input_string[string_pointer:in_input])
+        while looking_at in input_had and in_input - string_pointer < max_window:
+            looked = True
+            looking_at = input_string[string_pointer:in_input]
+            in_input += 1
     else:
+        looking_at = str(input_string[string_pointer:])
+    if looked:
+        looking_at = looking_at[:-1]
+        in_input -= 1
         occurence_index = input_had.index(looking_at)
         length = in_input - string_pointer - 1
         output_string += f"({occurence_index},{length})"
         input_had += looking_at
         string_pointer = in_input - 1
+    else:
+        output_string += input_string[string_pointer]
+        input_had += input_string[string_pointer]
+        string_pointer += 1
+
 
 # bytetjes = bytearray(input_string, 'utf-8')
 #
@@ -91,6 +96,6 @@ while string_pointer < len(input_string):
 #     past_inputs.append(current_val)
 
 print(output_string)
-f = open("text_files/encoded/sam_i_am_encoded2", 'w')
+f = open("text_files/encoded/lyric_aroundtheworld_encoded", 'w')
 f.write(output_string)
 f.close()
