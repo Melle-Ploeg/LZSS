@@ -1,28 +1,5 @@
-import os.path
-
-# Pseudocode:
-# while input is not empty do
-#     match := longest repeated occurrence of input that begins in window
-#
-#     if match exists then
-#         d := distance to start of match
-#         l := length of match
-#         c := char following match in input
-#     else
-#         d := 0
-#         l := 0
-#         c := first char of input
-#     end if
-#
-#     output (d, l, c)
-#
-#     discard l + 1 chars from front of window
-#     s := pop l + 1 chars from front of input
-#     append s to back of window
-# repeat
-
 # Read the file
-file = open("text_files/to_encode/lyric_aroundtheworld")
+file = open("text_files/to_encode/lyric_harderbetterfasterstronger")
 
 input_string = str(file.read())
 file.close()
@@ -38,6 +15,10 @@ search_buffer_size = 256
 
 while string_pointer < len(input_string):
     looked = False
+    if len(input_had) > search_buffer_size:
+        search_buffer = input_had[len(input_had)-search_buffer_size:len(input_had)]
+    else:
+        search_buffer = input_had
     if string_pointer == len(input_string) - 1:
         output_string += input_string[string_pointer]
         break
@@ -46,8 +27,8 @@ while string_pointer < len(input_string):
         looking_at = str(input_string[string_pointer:in_input])
         while looking_at in search_buffer and in_input - string_pointer <= look_ahead_size:
             looked = True
-            looking_at = input_string[string_pointer:in_input]
             in_input += 1
+            looking_at = input_string[string_pointer:in_input]
     else:
         looking_at = str(input_string[string_pointer:])
     if looked:
@@ -58,46 +39,14 @@ while string_pointer < len(input_string):
         length = len(looking_at)
         output_string += f"({len(search_buffer) - occurence_index},{length})"
         input_had += looking_at
-        string_pointer = in_input - 1
+        string_pointer = in_input
     else:
         output_string += input_string[string_pointer]
         input_had += input_string[string_pointer]
         string_pointer += 1
 
-
-# bytetjes = bytearray(input_string, 'utf-8')
-#
-#
-# string_pointer = 0
-# past_inputs = []
-# string_to_check = ''
-#
-#
-# def substitute_occurrence(occ_i, length):
-#     return f"({occ_i},{length})"
-#
-# locations = {}
-# output_string = ""
-#
-# while string_pointer < len(input_string):
-#     current_val = input_string[string_pointer]
-#     if (string_to_check+current_val) in ''.join(past_inputs):
-#         string_to_check += current_val
-#         occurrences = past_inputs.index(current_val)
-#     else:
-#         # Verander dit voor oprechte LZSS implementatie
-#         if len(string_to_check) > 4:
-#             print(past_inputs)
-#             print(string_to_check)
-#             occurrence_index = input_string.index(string_to_check)
-#             output_string += substitute_occurrence(occurrence_index, len(string_to_check))
-#         else:
-#             output_string += string_to_check+current_val
-#         string_to_check = ''
-#     string_pointer += 1
-#     past_inputs.append(current_val)
-
 print(output_string)
-f = open("text_files/encoded/lyric_aroundtheworld_encoded", 'w')
+f = open("text_files/encoded/lyric_harderbetterfasterstronger_encoded", 'w')
 f.write(output_string)
+
 f.close()

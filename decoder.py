@@ -1,6 +1,6 @@
 import regex as re
 
-file = open("text_files/encoded/lyric_aroundtheworld_encoded")
+file = open("text_files/encoded/lyric_harderbetterfasterstronger_encoded")
 
 text = str(file.read())
 
@@ -45,3 +45,6 @@ while string_pointer < len(text):
         string_pointer += 1
 
 print(decoded_text)
+f = open("text_files/decoded/lyric_harderbetterfasterstronger_decoded", 'w')
+f.write(decoded_text)
+f.close()
