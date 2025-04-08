@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a921d07d-adf0-4b2b-8f6d-7098d8316f87" name="Changes" comment="broken encoder">
-      <change afterPath="$PROJECT_DIR$/text_files/encoded/lyric_aroundtheworld_encoded" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/to_encode/lyric_aroundtheworld" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text_files/encoded/bible_encoded" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text_files/encoded/lyric_harderbetterfasterstronger_encoded" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text_files/to_encode/bible" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text_files/to_encode/lyric_harderbetterfasterstronger" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pythonProject1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/decoder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_files/encoded/lyric_aroundtheworld_encoded" beforeDir="false" afterPath="$PROJECT_DIR$/text_files/encoded/lyric_aroundtheworld_encoded" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text_files/encoded/sam_i_am_encoded2" beforeDir="false" afterPath="$PROJECT_DIR$/text_files/encoded/sam_i_am_encoded2" afterDir="false" />
+    </list>
+    <list id="9ef86c69-869f-4893-8d90-6006e511dc63" name="Changes by erjan" comment="">
+      <change beforePath="$PROJECT_DIR$/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/decoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/encoder.py" afterDir="false" />
+    </list>
+    <list id="5058a0b5-605a-433c-a270-5e05edc11df7" name="Changes by minke" comment="">
+      <change beforePath="$PROJECT_DIR$/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/decoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measure_compression.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure_compression.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +53,37 @@
     &quot;accountId&quot;: &quot;82ce3999-f001-44af-ad5b-fc6483884efd&quot;
   }
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/decoder.py">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="3" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="13" end1="14" start2="13" end2="14" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="20" end1="21" start2="20" end2="21" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="33" end1="34" start2="33" end2="34" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="35" end1="36" start2="35" end2="36" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="37" end1="38" start2="37" end2="38" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="47" end1="47" start2="47" end2="50" changelist="9ef86c69-869f-4893-8d90-6006e511dc63" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/encoder.py">
+      <ranges>
+        <range start1="0" end1="23" start2="0" end2="0" changelist="9ef86c69-869f-4893-8d90-6006e511dc63" />
+        <range start1="24" end1="25" start2="1" end2="2" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="35" end1="36" start2="12" end2="14" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="39" end1="39" start2="17" end2="21" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="45" end1="46" start2="27" end2="28" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="47" end1="47" start2="29" end2="30" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="48" end1="49" start2="31" end2="31" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="52" end1="57" start2="34" end2="40" changelist="a921d07d-adf0-4b2b-8f6d-7098d8316f87" />
+        <range start1="58" end1="59" start2="41" end2="42" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="63" end1="96" start2="46" end2="46" changelist="9ef86c69-869f-4893-8d90-6006e511dc63" />
+        <range start1="98" end1="99" start2="48" end2="49" changelist="5058a0b5-605a-433c-a270-5e05edc11df7" />
+        <range start1="100" end1="100" start2="50" end2="51" changelist="9ef86c69-869f-4893-8d90-6006e511dc63" />
+        <range start1="101" end1="102" start2="52" end2="52" changelist="9ef86c69-869f-4893-8d90-6006e511dc63" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -53,6 +96,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.compare_files.executor&quot;: &quot;Run&quot;,
     &quot;Python.decoder.executor&quot;: &quot;Run&quot;,
     &quot;Python.encoder.executor&quot;: &quot;Run&quot;,
     &quot;Python.measure_compression.executor&quot;: &quot;Run&quot;,
@@ -70,7 +114,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.decoder">
+  <component name="RunManager" selected="Python.encoder">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject1" />
       <option name="ENV_FILES" value="" />
@@ -86,6 +130,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="compare_files" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compare_files.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,9 +232,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.decoder" />
-        <item itemvalue="Python.encoder" />
         <item itemvalue="Python.measure_compression" />
+        <item itemvalue="Python.compare_files" />
+        <item itemvalue="Python.encoder" />
+        <item itemvalue="Python.decoder" />
         <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
@@ -232,10 +300,30 @@
     <MESSAGE value="broken encoder" />
     <option name="LAST_COMMIT_MESSAGE" value="broken encoder" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/decoder.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/encoder.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_code$decoder.coverage" NAME="decoder Coverage Results" MODIFIED="1743765487472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_code$encoder.coverage" NAME="encoder Coverage Results" MODIFIED="1743765482271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Project_code$Main.coverage" NAME="Main Coverage Results" MODIFIED="1743754780352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_code$measure_compression.coverage" NAME="measure_compression Coverage Results" MODIFIED="1743761632079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_code$Main.coverage" NAME="Main Coverage Results" MODIFIED="1743754780352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LZSS$measure_compression.coverage" NAME="measure_compression Coverage Results" MODIFIED="1744106133334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LZSS$decoder.coverage" NAME="decoder Coverage Results" MODIFIED="1744105433398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LZSS$encoder.coverage" NAME="encoder Coverage Results" MODIFIED="1744106051309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LZSS$compare_files.coverage" NAME="compare_files Coverage Results" MODIFIED="1744106072344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

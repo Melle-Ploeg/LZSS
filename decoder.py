@@ -11,14 +11,14 @@ while string_pointer < len(text):
     if text[string_pointer] == "(":
         string_pointer += 1
         digits = ""
-        text_pointer = (0, 0)
+        offset = (0, 0)
         while text[string_pointer].isdigit():
             digits += text[string_pointer]
             string_pointer += 1
         if digits == "":
             decoded_text += "("
             continue
-        text_pointer = (int(digits), 0)
+        offset = (int(digits), 0)
         if text[string_pointer] == ",":
             string_pointer += 1
         else:
@@ -31,14 +31,14 @@ while string_pointer < len(text):
             digits += text[string_pointer]
             string_pointer += 1
         if digits == "":
-            decoded_text += "(" + str(text_pointer[0]) + ","
+            decoded_text += "(" + str(offset[0]) + ","
             continue
-        text_pointer = (text_pointer[0], int(digits))
+        offset = (offset[0], int(digits))
         if text[string_pointer] == ")":
-            decoded_text += decoded_text[text_pointer[0]:(text_pointer[0] + text_pointer[1])]
+            decoded_text += decoded_text[len(decoded_text) - offset[0]:(-offset[0] + offset[1] + len(decoded_text))]
             string_pointer += 1
         else:
-            decoded_text += "(" + str(text_pointer[0]) + "," + str(text_pointer[1])
+            decoded_text += "(" + str(offset[0]) + "," + str(offset[1])
             continue
     else:
         decoded_text += text[string_pointer]

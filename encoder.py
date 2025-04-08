@@ -33,7 +33,8 @@ input_had = ""
 output_string = ""
 
 min_window = 4
-max_window = 32 # 32 is the max window size
+look_ahead_size = 256 # 32 is the max window size
+search_buffer_size = 256
 
 while string_pointer < len(input_string):
     looked = False
@@ -43,18 +44,19 @@ while string_pointer < len(input_string):
     in_input = string_pointer + min_window
     if in_input < len(input_string):
         looking_at = str(input_string[string_pointer:in_input])
-        while looking_at in input_had and in_input - string_pointer < max_window:
+        while looking_at in search_buffer and in_input - string_pointer <= look_ahead_size:
             looked = True
             looking_at = input_string[string_pointer:in_input]
             in_input += 1
     else:
         looking_at = str(input_string[string_pointer:])
     if looked:
-        looking_at = looking_at[:-1]
-        in_input -= 1
-        occurence_index = input_had.index(looking_at)
-        length = in_input - string_pointer - 1
-        output_string += f"({occurence_index},{length})"
+        if in_input <= len(input_string):
+            looking_at = looking_at[:-1]
+            in_input -= 1
+        occurence_index = search_buffer.index(looking_at)
+        length = len(looking_at)
+        output_string += f"({len(search_buffer) - occurence_index},{length})"
         input_had += looking_at
         string_pointer = in_input - 1
     else:
