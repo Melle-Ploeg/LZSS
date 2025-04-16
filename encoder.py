@@ -12,7 +12,7 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
     output_string = ""
 
     min_window = min_window
-    look_ahead_size = look_ahead_size # 32 is the max window size
+    look_ahead_size = look_ahead_size
     search_buffer_size = search_buffer_size
 
     while string_pointer < len(input_string):
@@ -47,7 +47,6 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
             input_had += input_string[string_pointer]
             string_pointer += 1
 
-    print(output_string)
     f = open(f"text_files/encoded/{filename}_encoded", 'w')
     f.write(output_string)
 

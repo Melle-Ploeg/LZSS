@@ -1,6 +1,6 @@
 import regex as re
 
-def decode(filename):
+def decode_lempel_ziv_string(filename):
     file = open(f"text_files/encoded/{filename}_encoded", 'r')
 
     text = str(file.read())
