@@ -2,33 +2,50 @@
 import os.path
 import time
 
-from decoder import decode_lempel_ziv_string
-from encoder import encode_lempel_ziv_string
+from decoder import decode_lempel_ziv_string, decode_lempel_ziv_bits
+from encoder import encode_lempel_ziv_string, encode_lempel_ziv_bits
 
 
-def compare_compression(filename, min_window=4, look_ahead_size=100, search_buffer_size=100):
+def compare_compression(filename, min_window=4, look_ahead_size=4096, search_buffer_size=4096, bits=False):
     # Time how long the encoding takes
-    start = time.time()
-    encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffer_size)
-    encoding_time = time.time() - start
+    if bits:
+        start = time.time()
+        encode_lempel_ziv_bits(filename, min_window, look_ahead_size, search_buffer_size)
+        encoding_time = time.time() - start
 
-    start = time.time()
-    decode_lempel_ziv_string(filename)
-    decoding_time = time.time() - start
+        start = time.time()
+        decode_lempel_ziv_bits(filename)
+        decoding_time = time.time() - start
+    else:
+        start = time.time()
+        encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffer_size)
+        encoding_time = time.time() - start
+
+        start = time.time()
+        decode_lempel_ziv_string(filename)
+        decoding_time = time.time() - start
 
     # ensure that the original and decoded files are the same
     file = open(f"text_files/to_encode/{filename}", 'r')
     original_text = str(file.read())
     file.close()
 
-    file = open(f"text_files/decoded/{filename}_decoded", 'r')
-    decoded_text = str(file.read())
-    file.close()
+    if bits:
+        file = open(f"text_files/decoded/{filename}_decodedbits", 'r')
+        decoded_text = str(file.read())
+        file.close()
+    else:
+        file = open(f"text_files/decoded/{filename}_decoded", 'r')
+        decoded_text = str(file.read())
+        file.close()
 
     assert(original_text == decoded_text)
 
     original_size = os.path.getsize(f"text_files/to_encode/{filename}")
-    encoded_size = os.path.getsize(f"text_files/encoded/{filename}_encoded")
+    if bits:
+        encoded_size = os.path.getsize(f"text_files/encoded/{filename}_encodedbits")
+    else:
+        encoded_size = os.path.getsize(f"text_files/encoded/{filename}_encoded")
 
     compression_ratio = encoded_size / original_size
     saving_percentage = (original_size - encoded_size) / original_size * 100
@@ -36,4 +53,7 @@ def compare_compression(filename, min_window=4, look_ahead_size=100, search_buff
     print("Decompression time: " + str(round(decoding_time, 2)) + "s")
     print("Compression ratio: " + str(round(compression_ratio, 2)))
     print("Saving percentage: " + str(round(saving_percentage, 2)) + "%")
-    return encoding_time, decoding_time, compression_ratio, saving_percentage
+    return original_size, encoded_size, encoding_time, decoding_time, compression_ratio, saving_percentage
+
+compare_compression('test', 6, 256, 256, True)
+compare_compression('test', 6, 256, 256, False)

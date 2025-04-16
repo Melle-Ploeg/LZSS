@@ -1,4 +1,31 @@
 import regex as re
+from bitarray import bitarray
+
+
+def decode_lempel_ziv_bits(filename):
+    file = open(f"text_files/encoded/{filename}_encodedbits", 'rb')
+
+    text = bitarray()
+    text.fromfile(file)
+    file.close()
+
+    decoded_text = []
+    while len(text) >= 9: # if there are less than 9 bits it's all padding
+        if text.pop(0): # this means we have a (offset, length) pair
+            offset = int.from_bytes(text[:8].tobytes())
+            text = text[8:]
+            length = int.from_bytes(text[:8].tobytes())
+            text = text[8:]
+            decoded_text += decoded_text[len(decoded_text) - offset:-offset+length+len(decoded_text)]
+        else:
+            decoded_text.append(text[:8].tobytes())
+            text = text[8:]
+    f = open(f"text_files/decoded/{filename}_decodedbits", 'wb')
+    f.write(b''.join(decoded_text))
+    f.close
+
+decode_lempel_ziv_bits('test')
+
 
 def decode_lempel_ziv_string(filename):
     file = open(f"text_files/encoded/{filename}_encoded", 'r')
