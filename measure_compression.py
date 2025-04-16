@@ -54,6 +54,3 @@ def compare_compression(filename, min_window=4, look_ahead_size=4096, search_buf
     print("Compression ratio: " + str(round(compression_ratio, 2)))
     print("Saving percentage: " + str(round(saving_percentage, 2)) + "%")
     return original_size, encoded_size, encoding_time, decoding_time, compression_ratio, saving_percentage
-
-compare_compression('test', 6, 256, 256, True)
-compare_compression('test', 6, 256, 256, False)

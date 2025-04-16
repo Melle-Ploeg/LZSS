@@ -13,9 +13,9 @@ def encode_lempel_ziv_bits(filename, min_window, look_ahead_size, search_buffer_
     search_buffer = bytearray()
 
     string_pointer = 0
-    looked = False
 
     while string_pointer < len(input_string):
+        looked = False
         while len(search_buffer) > search_buffer_size:
             search_buffer.pop(0)
         if string_pointer == len(input_string) - 1:
