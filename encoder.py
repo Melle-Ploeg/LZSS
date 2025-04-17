@@ -65,10 +65,6 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
     output_string = ""
     search_buffer = ""
 
-    min_window = min_window
-    look_ahead_size = look_ahead_size
-    search_buffer_size = search_buffer_size
-
     while string_pointer < len(input_string):
         looked = False
         while len(search_buffer) > search_buffer_size:
