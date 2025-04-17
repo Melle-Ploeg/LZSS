@@ -1,4 +1,3 @@
-import regex as re
 from bitarray import bitarray
 
 

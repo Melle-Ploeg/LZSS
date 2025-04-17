@@ -62,8 +62,8 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
 
     string_pointer = 0
 
-    input_had = ""
     output_string = ""
+    search_buffer = ""
 
     min_window = min_window
     look_ahead_size = look_ahead_size
@@ -71,10 +71,8 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
 
     while string_pointer < len(input_string):
         looked = False
-        if len(input_had) > search_buffer_size:
-            search_buffer = input_had[len(input_had)-search_buffer_size:len(input_had)]
-        else:
-            search_buffer = input_had
+        while len(search_buffer) > search_buffer_size:
+            search_buffer = search_buffer[1:]
         if string_pointer == len(input_string) - 1:
             output_string += input_string[string_pointer]
             break
@@ -94,11 +92,11 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
             occurence_index = search_buffer.index(looking_at)
             length = len(looking_at)
             output_string += f"({len(search_buffer) - occurence_index},{length})"
-            input_had += looking_at
+            search_buffer += looking_at
             string_pointer = in_input
         else:
             output_string += input_string[string_pointer]
-            input_had += input_string[string_pointer]
+            search_buffer += input_string[string_pointer]
             string_pointer += 1
 
     f = open(f"text_files/encoded/{filename}_encoded", 'w', encoding='utf-8')
