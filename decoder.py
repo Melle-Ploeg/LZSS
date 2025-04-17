@@ -9,17 +9,21 @@ def decode_lempel_ziv_bits(filename):
     text.fromfile(file)
     file.close()
 
+    pointer = 0
+
     decoded_text = []
-    while len(text) >= 9: # if there are less than 9 bits it's all padding
-        if text.pop(0): # this means we have a (offset, length) pair
-            offset = int.from_bytes(text[:16].tobytes(), 'big')
-            text = text[16:]
-            length = int.from_bytes(text[:16].tobytes(), 'big')
-            text = text[16:]
+    while len(text) - pointer >= 9: # if there are less than 9 bits it's all padding
+        if text[pointer]: # this means we have a (offset, length) pair
+            pointer += 1
+            offset = int.from_bytes(text[pointer:pointer+16].tobytes(), 'big')
+            pointer += 16
+            length = int.from_bytes(text[pointer:pointer+16].tobytes(), 'big')
+            pointer += 16
             decoded_text += decoded_text[len(decoded_text) - offset:-offset+length+len(decoded_text)]
         else:
-            decoded_text.append(text[:8].tobytes())
-            text = text[8:]
+            pointer += 1
+            decoded_text.append(text[pointer:pointer+8].tobytes())
+            pointer += 8
     f = open(f"text_files/decoded/{filename}_decodedbits", 'wb')
     f.write(b''.join(decoded_text))
     f.close
