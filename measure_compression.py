@@ -26,16 +26,16 @@ def compare_compression(filename, min_window=4, look_ahead_size=4096, search_buf
         decoding_time = time.time() - start
 
     # ensure that the original and decoded files are the same
-    file = open(f"text_files/to_encode/{filename}", 'r')
+    file = open(f"text_files/to_encode/{filename}", 'r', errors='ignore', encoding='utf-8')
     original_text = str(file.read())
     file.close()
 
     if bits:
-        file = open(f"text_files/decoded/{filename}_decodedbits", 'r')
+        file = open(f"text_files/decoded/{filename}_decodedbits", 'r', errors='ignore', encoding='utf-8')
         decoded_text = str(file.read())
         file.close()
     else:
-        file = open(f"text_files/decoded/{filename}_decoded", 'r')
+        file = open(f"text_files/decoded/{filename}_decoded", 'r', errors='ignore', encoding='utf-8')
         decoded_text = str(file.read())
         file.close()
 

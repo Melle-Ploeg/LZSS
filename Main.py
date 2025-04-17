@@ -1,6 +1,4 @@
 import os
-import time
-import numpy as np
 import pandas as pd
 from measure_compression import compare_compression
 
@@ -12,8 +10,8 @@ for filename in os.listdir(directory):
         print(f"Measuring compression stats for {filename}")
         # call the compare_compression function
         print("Bits")
-        compression_stats.loc[len(compression_stats.index)] = [filename] + list(compare_compression(filename, 6, 256, 255, True))
+        compression_stats.loc[len(compression_stats.index)] = [filename] + list(compare_compression(filename, 6, 1024, 1024, True))
         print("String")
-        compression_stats.loc[len(compression_stats.index)] = [filename] + list(compare_compression(filename, 6, 256, 255, False))
+        compression_stats.loc[len(compression_stats.index)] = [filename] + list(compare_compression(filename, 6, 1024, 1024, False))
 # save the dataframe to a csv file
 compression_stats.to_csv("compression_stats.csv")

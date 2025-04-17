@@ -2,7 +2,7 @@ from bitarray import bitarray
 
 
 def encode_lempel_ziv_bits(filename, min_window, look_ahead_size, search_buffer_size):
-    file = open(f"text_files/to_encode/{filename}", 'r', encoding='utf-8')
+    file = open(f"text_files/to_encode/{filename}", 'r', errors='ignore', encoding='utf-8')
 
     input_string = str(file.read())
     file.close()
@@ -39,8 +39,8 @@ def encode_lempel_ziv_bits(filename, min_window, look_ahead_size, search_buffer_
             length = len(looking_at)
             output_buffer.append(True) # flags that this is a pointer
             offset = len(search_buffer) - occurrence_index
-            output_buffer.frombytes(bytes([offset])) # add the offset
-            output_buffer.frombytes(bytes([length])) # add the length
+            output_buffer.frombytes(offset.to_bytes(2, 'big')) # add the offset
+            output_buffer.frombytes(length.to_bytes(2, 'big')) # add the length
             search_buffer.extend(looking_at)
             string_pointer = in_input
         else:
@@ -54,11 +54,8 @@ def encode_lempel_ziv_bits(filename, min_window, look_ahead_size, search_buffer_
     output_buffer.tofile(f)
 
 
-
-encode_lempel_ziv_bits("test", 6, 256, 256)
-
 def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffer_size):
-    file = open(f"text_files/to_encode/{filename}", 'r')
+    file = open(f"text_files/to_encode/{filename}", 'r', errors='ignore', encoding='utf-8')
 
     input_string = str(file.read())
     file.close()
@@ -104,7 +101,7 @@ def encode_lempel_ziv_string(filename, min_window, look_ahead_size, search_buffe
             input_had += input_string[string_pointer]
             string_pointer += 1
 
-    f = open(f"text_files/encoded/{filename}_encoded", 'w')
+    f = open(f"text_files/encoded/{filename}_encoded", 'w', encoding='utf-8')
     f.write(output_string)
 
     f.close()

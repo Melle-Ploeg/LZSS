@@ -12,10 +12,10 @@ def decode_lempel_ziv_bits(filename):
     decoded_text = []
     while len(text) >= 9: # if there are less than 9 bits it's all padding
         if text.pop(0): # this means we have a (offset, length) pair
-            offset = int.from_bytes(text[:8].tobytes())
-            text = text[8:]
-            length = int.from_bytes(text[:8].tobytes())
-            text = text[8:]
+            offset = int.from_bytes(text[:16].tobytes(), 'big')
+            text = text[16:]
+            length = int.from_bytes(text[:16].tobytes(), 'big')
+            text = text[16:]
             decoded_text += decoded_text[len(decoded_text) - offset:-offset+length+len(decoded_text)]
         else:
             decoded_text.append(text[:8].tobytes())
@@ -24,11 +24,9 @@ def decode_lempel_ziv_bits(filename):
     f.write(b''.join(decoded_text))
     f.close
 
-decode_lempel_ziv_bits('test')
-
 
 def decode_lempel_ziv_string(filename):
-    file = open(f"text_files/encoded/{filename}_encoded", 'r')
+    file = open(f"text_files/encoded/{filename}_encoded", 'r', encoding='utf-8')
 
     text = str(file.read())
 
@@ -71,6 +69,6 @@ def decode_lempel_ziv_string(filename):
         else:
             decoded_text += text[string_pointer]
             string_pointer += 1
-    f = open(f"text_files/decoded/{filename}_decoded", 'w')
+    f = open(f"text_files/decoded/{filename}_decoded", 'w', encoding='utf8')
     f.write(decoded_text)
     f.close()
